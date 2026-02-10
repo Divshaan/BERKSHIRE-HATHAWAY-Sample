@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Message From Warren E. Buffett | Berkshire Hathaway Inc.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { stone: { 50: '#fafaf9', 100: '#f5f5f4', 200: '#e7e5e4', 300: '#d6d3d1', 400: '#a8a29e', 500: '#78716c', 600: '#57534e', 700: '#44403c', 800: '#292524', 900: '#1c1917' }, 'warm-white': '#FDFBF7' },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['"Inter"', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FDFBF7; color: #1c1917; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+        
+        /* Consistent Navigation Transitions */
+        #mobile-menu { transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        #mobile-menu.open { transform: translateX(0); }
+        .menu-overlay { opacity: 0; visibility: hidden; transition: all 0.5s ease; }
+        .menu-overlay.open { opacity: 1; visibility: visible; }
+    </style>
+</head>
+<body>
+
+    <!-- Menu Overlay -->
+    <div id="menu-overlay" class="menu-overlay fixed inset-0 bg-stone-900/40 backdrop-blur-sm z-[60]" onclick="toggleMenu()"></div>
+
+    <!-- Standardized Slide-out Navigation -->
+    <aside id="mobile-menu" class="fixed top-0 right-0 h-full w-full max-w-sm bg-warm-white z-[70] shadow-2xl p-12 flex flex-col">
+        <div class="flex justify-between items-center mb-12">
+            <span class="font-serif font-bold tracking-widest text-xs uppercase text-stone-400">Directory</span>
+            <button onclick="toggleMenu()" class="text-stone-900 hover:rotate-90 transition-transform duration-300">
+                <i class="ph ph-x text-2xl"></i>
+            </button>
+        </div>
+        
+        <nav class="flex flex-col space-y-6 text-xl font-serif">
+            <a href="index.html" class="text-stone-400">Home</a>
+            <a href="letters.html" class="hover:translate-x-2 transition-transform">Shareholder Letters</a>
+            <a href="financials.html" class="hover:translate-x-2 transition-transform">Financial Reports</a>
+            <a href="portfolio.html" class="hover:translate-x-2 transition-transform">Operating Companies</a>
+            <a href="governance.html" class="hover:translate-x-2 transition-transform">Corporate Governance</a>
+            <a href="news.html" class="hover:translate-x-2 transition-transform">News Releases</a>
+            <a href="cinema.html" class="hover:translate-x-2 transition-transform">Video Archive</a>
+            <a href="owners-manual.html" class="hover:translate-x-2 transition-transform text-amber-700">Owner's Manual</a>
+            <a href="contact.html" class="hover:translate-x-2 transition-transform">Contact Us</a>
+        </nav>
+
+        <div class="mt-auto pt-10 border-t border-stone-200">
+            <p class="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400 mb-4">Official Channels</p>
+            <div class="flex flex-col gap-3 text-stone-600 text-xs uppercase tracking-wider">
+                <a href="mailto:Info@berkshirehathaway.com" class="hover:text-stone-900 transition-colors">Info@berkshirehathaway.com</a>
+                <a href="tel:+14023461400" class="hover:text-stone-900 transition-colors">+1 (402) 346-1400</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Header Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="font-serif font-bold tracking-widest text-sm uppercase text-stone-900">Berkshire Hathaway</a>
+            
+            <div class="hidden lg:flex space-x-8 text-[10px] font-sans font-bold tracking-widest uppercase text-stone-500">
+                <a href="letters.html" class="hover:text-stone-900 transition-colors">Letters</a>
+                <a href="financials.html" class="hover:text-stone-900 transition-colors">Financials</a>
+                <a href="portfolio.html" class="hover:text-stone-900 transition-colors">Operating Companies</a>
+                <a href="news.html" class="hover:text-stone-900 transition-colors">News</a>
+            </div>
+
+            <button onclick="toggleMenu()" class="text-stone-900 hover:text-stone-500 transition-colors flex items-center gap-2">
+                <span class="text-[10px] font-bold uppercase tracking-widest hidden sm:block">Menu</span>
+                <i class="ph ph-list text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="min-h-screen pt-32 pb-20 px-6">
+        <div class="max-w-2xl mx-auto fade-in">
+        <h1 class="text-4xl font-serif mb-12">A Message From Warren E. Buffett</h1>
+        
+        <div class="space-y-8 text-lg font-serif italic text-stone-800 leading-relaxed border-l-2 border-stone-200 pl-8">
+            <p>"If you are looking for a company that will give you a short-term 'pop' or a quick exit, Berkshire is not the place for you. We are looking for long-term partners who want to build wealth alongside us over decades."</p>
+            <p>"Our focus remains on the past, present, and future of the company—specifically on maintaining the culture of integrity and autonomy that has allowed our subsidiaries to flourish."</p>
+        </div>
+
+        <div class="mt-16 space-y-6 text-sm font-sans text-stone-600 leading-relaxed">
+            <p>This message serves as a reminder of the unique nature of Berkshire's capital allocation and the commitment to our 13 Business Principles.</p>
+            <p>For more detailed insights into our philosophy, we encourage you to read the full retrospective letters published in 2014 and the unedited transcripts from our annual meetings.</p>
+        </div>
+
+        <div class="mt-12 pt-12 border-t border-stone-100 flex gap-6">
+            <a href="letters.html" class="text-[10px] font-bold uppercase tracking-widest border border-stone-900 px-6 py-3 hover:bg-stone-900 hover:text-white transition-all">Read Letters</a>
+            <a href="owners-manual.html" class="text-[10px] font-bold uppercase tracking-widest border border-stone-200 px-6 py-3 hover:bg-stone-100 transition-all">Business Principles</a>
+        </div>
+        </div>
+    </main>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const menu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('menu-overlay');
+
+        function toggleMenu() {
+            menu.classList.toggle('open');
+            overlay.classList.toggle('open');
+            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+        }
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add('bg-warm-white/95', 'backdrop-blur-sm', 'shadow-sm', 'py-4');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-warm-white/95', 'backdrop-blur-sm', 'shadow-sm', 'py-4');
+                navbar.classList.add('py-6');
+            }
+        });
+    </script>
+</body>
+</html>

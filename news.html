@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Releases | Berkshire Hathaway Inc.</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: { 50: '#fafaf9', 100: '#f5f5f4', 200: '#e7e5e4', 300: '#d6d3d1', 400: '#a8a29e', 500: '#78716c', 600: '#57534e', 700: '#44403c', 800: '#292524', 900: '#1c1917' },
+                        'warm-white': '#FDFBF7',
+                    },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['"Inter"', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #FDFBF7; color: #1c1917; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+        #mobile-menu { transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        #mobile-menu.open { transform: translateX(0); }
+        .menu-overlay { opacity: 0; visibility: hidden; transition: all 0.5s ease; }
+        .menu-overlay.open { opacity: 1; visibility: visible; }
+        
+        .news-link { transition: all 0.3s ease; }
+        .news-link:hover { padding-left: 8px; color: #1c1917; }
+    </style>
+</head>
+<body>
+
+    <!-- Menu Overlay -->
+    <div id="menu-overlay" class="menu-overlay fixed inset-0 bg-stone-900/40 backdrop-blur-sm z-[60]" onclick="toggleMenu()"></div>
+
+    <!-- Standardized Slide-out Navigation -->
+    <aside id="mobile-menu" class="fixed top-0 right-0 h-full w-full max-w-sm bg-warm-white z-[70] shadow-2xl p-12 flex flex-col">
+        <div class="flex justify-between items-center mb-12">
+            <span class="font-serif font-bold tracking-widest text-xs uppercase text-stone-400">Directory</span>
+            <button onclick="toggleMenu()" class="text-stone-900 hover:rotate-90 transition-transform duration-300">
+                <i class="ph ph-x text-2xl"></i>
+            </button>
+        </div>
+        
+        <nav class="flex flex-col space-y-6 text-xl font-serif">
+            <a href="index.html" class="text-stone-400">Home</a>
+            <a href="letters.html" class="hover:translate-x-2 transition-transform">Shareholder Letters</a>
+            <a href="financials.html" class="hover:translate-x-2 transition-transform">Financial Reports</a>
+            <a href="portfolio.html" class="hover:translate-x-2 transition-transform">Operating Companies</a>
+            <a href="governance.html" class="hover:translate-x-2 transition-transform">Corporate Governance</a>
+            <a href="news.html" class="hover:translate-x-2 transition-transform text-stone-400">News Releases</a>
+            <a href="cinema.html" class="hover:translate-x-2 transition-transform">Video Archive</a>
+            <a href="owners-manual.html" class="hover:translate-x-2 transition-transform text-amber-700">Owner's Manual</a>
+            <a href="contact.html" class="hover:translate-x-2 transition-transform">Contact Us</a>
+        </nav>
+
+        <div class="mt-auto pt-10 border-t border-stone-200">
+            <p class="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400 mb-4">Official Channels</p>
+            <div class="flex flex-col gap-3 text-stone-600 text-xs uppercase tracking-wider">
+                <a href="mailto:Info@berkshirehathaway.com" class="hover:text-stone-900 transition-colors">Info@berkshirehathaway.com</a>
+                <a href="tel:+14023461400" class="hover:text-stone-900 transition-colors">+1 (402) 346-1400</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Header Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="font-serif font-bold tracking-widest text-sm uppercase text-stone-900">Berkshire Hathaway</a>
+            
+            <div class="hidden lg:flex space-x-8 text-[10px] font-sans font-bold tracking-widest uppercase text-stone-500">
+                <a href="letters.html" class="hover:text-stone-900 transition-colors">Letters</a>
+                <a href="financials.html" class="hover:text-stone-900 transition-colors">Financials</a>
+                <a href="portfolio.html" class="hover:text-stone-900 transition-colors">Operating Companies</a>
+                <a href="news.html" class="hover:text-stone-900 transition-colors">News</a>
+            </div>
+
+            <button onclick="toggleMenu()" class="text-stone-900 hover:text-stone-500 transition-colors flex items-center gap-2">
+                <span class="text-[10px] font-bold uppercase tracking-widest hidden sm:block">Menu</span>
+                <i class="ph ph-list text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-32 pb-16 px-6 max-w-7xl mx-auto border-b border-stone-200 fade-in">
+        <p class="text-xs font-sans font-bold tracking-[0.2em] text-stone-400 mb-6 uppercase">Media Relations</p>
+        <h1 class="text-4xl md:text-6xl font-serif font-medium leading-tight text-stone-900 mb-6">News Releases</h1>
+        <p class="text-lg text-stone-600 font-serif italic max-w-2xl leading-relaxed">
+            A chronological archive of official announcements, ranging from quarterly earnings to acquisition news.
+        </p>
+    </header>
+
+    <main class="pb-20">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                
+                <!-- Latest / Active Releases -->
+                <div class="lg:col-span-8 space-y-16">
+                    
+                    <!-- 2026 Section -->
+                    <section class="fade-in">
+                        <div class="flex items-center gap-4 mb-8">
+                            <h2 class="text-2xl font-serif text-stone-900">Current Releases (2026)</h2>
+                            <div class="h-px bg-stone-100 flex-grow"></div>
+                        </div>
+                        <ul class="space-y-10">
+                            <li>
+                                <a href="news/jan0226.pdf" class="group block border-l-4 border-stone-900 pl-8 transition-all">
+                                    <span class="block text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-2">January 02, 2026</span>
+                                    <h3 class="text-2xl font-serif text-stone-900 mb-3 group-hover:text-stone-500 transition-colors">Preliminary Unaudited 2025 Financial Outlook</h3>
+                                    <span class="text-[10px] font-bold uppercase tracking-widest text-stone-300">Download PDF Announcement</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- Year Grid Archive -->
+                    <section class="fade-in">
+                        <div class="flex items-center gap-4 mb-8">
+                            <h2 class="text-2xl font-serif text-stone-900">Historical Archive</h2>
+                            <div class="h-px bg-stone-100 flex-grow"></div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-12 gap-x-8">
+                            <!-- Categorized by the patterns in the sitemap -->
+                            <div>
+                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-6">2020 — 2025</h4>
+                                <ul class="space-y-4 text-sm font-serif text-stone-500">
+                                    <li><a href="news/2025news.html" class="news-link flex justify-between">2025 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2024news.html" class="news-link flex justify-between">2024 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2023news.html" class="news-link flex justify-between">2023 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2022news.html" class="news-link flex justify-between">2022 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2021news.html" class="news-link flex justify-between">2021 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2020news.html" class="news-link flex justify-between">2020 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-6">2010 — 2019</h4>
+                                <ul class="space-y-4 text-sm font-serif text-stone-500">
+                                    <li><a href="news/2019news.html" class="news-link flex justify-between">2019 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2018news.html" class="news-link flex justify-between">2018 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2017news.html" class="news-link flex justify-between">2017 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2016news.html" class="news-link flex justify-between">2016 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2015news.html" class="news-link flex justify-between">2015 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2014news.html" class="news-link flex justify-between">2014 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2013news.html" class="news-link flex justify-between">2013 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2012news.html" class="news-link flex justify-between">2012 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2011news.html" class="news-link flex justify-between">2011 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2010news.html" class="news-link flex justify-between">2010 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-6">1995 — 2009</h4>
+                                <ul class="space-y-4 text-sm font-serif text-stone-500">
+                                    <li><a href="news/2009news.html" class="news-link flex justify-between">2009 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2008news.html" class="news-link flex justify-between">2008 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2007news.html" class="news-link flex justify-between">2007 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2006news.html" class="news-link flex justify-between">2006 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2005news.html" class="news-link flex justify-between">2005 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2004news.html" class="news-link flex justify-between">2004 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2003news.html" class="news-link flex justify-between">2003 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2002news.html" class="news-link flex justify-between">2002 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/2001news.html" class="news-link flex justify-between">2001 Index <i class="ph ph-arrow-up-right"></i></a></li>
+                                    <li><a href="news/oldnews.html" class="news-link flex justify-between font-bold text-stone-900">Legacy Archives <i class="ph ph-folder-open"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar Search/Alert -->
+                <aside class="lg:col-span-4 space-y-12">
+                    <div class="bg-stone-50 border border-stone-100 p-8 rounded-sm">
+                        <h3 class="text-xl font-serif mb-4">Media Inquiries</h3>
+                        <p class="text-sm text-stone-500 leading-relaxed mb-8">
+                            Official press releases are the only form of media commentary issued by Berkshire Hathaway leadership.
+                        </p>
+                        <a href="contact.html" class="text-xs font-bold uppercase tracking-widest text-stone-900 border-b border-stone-200 pb-1">Contact Details &rarr;</a>
+                    </div>
+
+                    <div class="p-8 border border-stone-200">
+                        <h3 class="text-xl font-serif mb-4">Email Alerts</h3>
+                        <p class="text-sm text-stone-500 leading-relaxed mb-6">Receive notifications when new press releases or financial reports are published.</p>
+                        <a href="sharehold.html" class="text-xs font-bold uppercase tracking-widest border-b border-stone-200 pb-1 hover:border-stone-900 transition-colors">Subscription Hub</a>
+                    </div>
+                </aside>
+
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-warm-white py-16 px-6 border-t border-stone-200 text-center">
+        <p class="text-xs font-sans text-stone-400 uppercase tracking-widest mb-6">
+            &copy; 1978 — <span id="year"></span> Berkshire Hathaway Inc.
+        </p>
+        <div class="flex justify-center gap-8 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-400">
+            <a href="index.html" class="hover:text-stone-900 transition-colors">Home</a>
+            <a href="contact.html" class="hover:text-stone-900 transition-colors">Contact</a>
+            <a href="disclaimer.html" class="hover:text-stone-900 transition-colors">Legal Disclaimer</a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        const navbar = document.getElementById('navbar');
+        const menu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('menu-overlay');
+
+        function toggleMenu() {
+            menu.classList.toggle('open');
+            overlay.classList.toggle('open');
+            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+        }
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add('bg-warm-white/95', 'backdrop-blur-sm', 'shadow-sm', 'py-4');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-warm-white/95', 'backdrop-blur-sm', 'shadow-sm', 'py-4');
+                navbar.classList.add('py-6');
+            }
+        });
+    </script>
+</body>
+</html>
